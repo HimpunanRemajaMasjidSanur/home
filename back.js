@@ -12,16 +12,24 @@
 //     }
 // }
 
-let masukanNama = prompt("Nama kamu siapa?")
-
-while (masukanNama === "") {
-    masukanNama = [prompt("Nama tidak boleh kosong!")]
-}
-
-if (masukanNama ) {
-    document.querySelector(".welcome").innerHTML = `Assalamu'alaikum, ${masukanNama}`
+if (localStorage.length === 0) {
+    let masukanNama = prompt("Nama kamu siapa?")
+    
+    while (masukanNama === "") {
+        masukanNama = [prompt("Nama tidak boleh kosong!")]
+    }
+    
+    if (masukanNama ) {
+        document.querySelector(".welcome").innerHTML = `Assalamu'alaikum, ${masukanNama}`
+        document.querySelector(".welcomeP").innerHTML = `Terimakasih telah mengunjungi Web Page HRM Sanur`
+    }
+    
+    localStorage.setItem('Name', masukanNama);
+} else {
+    document.querySelector(".welcome").innerHTML = `Assalamu'alaikum, ${localStorage.Name}`
     document.querySelector(".welcomeP").innerHTML = `Terimakasih telah mengunjungi Web Page HRM Sanur`
 }
+
 
 
 
